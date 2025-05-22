@@ -1,4 +1,20 @@
 {
+    "1fb4ef2e-49a8-8017-abb9-da7a580a8d72": {
+        "checkbox": false,
+        "status": "No Status",
+        "Task Reminder": "",
+        "url": "https://www.notion.so/1fb4ef2e49a88017abb9da7a580a8d72",
+        "title": "로컬 환경 테스트",
+        "created_by": "김혜송"
+    },
+    "1fb4ef2e-49a8-801c-84f8-ec3d7510e4df": {
+        "checkbox": false,
+        "status": "No Status",
+        "Task Reminder": "",
+        "url": "https://www.notion.so/CI-CD-Notion-Python-TEST-01-1fb4ef2e49a8801c84f8ec3d7510e4df",
+        "title": "클라우드 서버 CI/CD Notion Python TEST #01",
+        "created_by": "김혜송"
+    },
     "1fb4ef2e-49a8-8023-a56d-e44ae298acb2": {
         "checkbox": false,
         "status": "No Status",
