@@ -1,43 +1,139 @@
 {
-    "1fb4ef2e-49a8-8017-abb9-da7a580a8d72": {
+    "2024ef2e-49a8-8013-ae64-c953a6bca8ac": {
         "checkbox": false,
         "status": "No Status",
         "Task Reminder": "",
-        "url": "https://www.notion.so/1fb4ef2e49a88017abb9da7a580a8d72",
-        "title": "로컬 환경 테스트",
-        "created_by": "김혜송"
+        "url": "https://www.notion.so/Better-Shader-2024ef2e49a88013ae64c953a6bca8ac",
+        "title": "Better Shader에 대하여",
+        "created_by": "NK 스튜디오"
     },
-    "1fb4ef2e-49a8-801c-84f8-ec3d7510e4df": {
+    "2024ef2e-49a8-805f-bacc-ce381e029e52": {
         "checkbox": false,
         "status": "No Status",
         "Task Reminder": "",
-        "url": "https://www.notion.so/CI-CD-Notion-Python-TEST-01-1fb4ef2e49a8801c84f8ec3d7510e4df",
-        "title": "클라우드 서버 CI/CD Notion Python TEST #01",
-        "created_by": "김혜송"
+        "url": "https://www.notion.so/MacOS-2024ef2e49a8805fbaccce381e029e52",
+        "title": "MacOS 네이티브 플러그인 제작 - 기초",
+        "created_by": "NK 스튜디오"
     },
-    "1fb4ef2e-49a8-8023-a56d-e44ae298acb2": {
+    "2024ef2e-49a8-8052-a66f-f19274b9a4a4": {
         "checkbox": false,
         "status": "No Status",
         "Task Reminder": "",
-        "url": "https://www.notion.so/CI-CD-03-1fb4ef2e49a88023a56de44ae298acb2",
-        "title": "CI/CD 배포 전 로컬 환경 테스트 #03",
-        "created_by": "김혜송"
+        "url": "https://www.notion.so/Radial-Blur-2024ef2e49a88052a66ff19274b9a4a4",
+        "title": "Radial Blur 제작 방법",
+        "created_by": "NK 스튜디오"
     },
-    "1fb4ef2e-49a8-8024-bac1-d3a8409c574c": {
+    "2024ef2e-49a8-801d-997e-c46b3ab379fb": {
         "checkbox": false,
         "status": "No Status",
         "Task Reminder": "",
-        "url": "https://www.notion.so/CI-CD-02-1fb4ef2e49a88024bac1d3a8409c574c",
-        "title": "CI/CD 배포 전 로컬 환경 테스트 #02",
-        "created_by": "김혜송"
+        "url": "https://www.notion.so/URP-2D-2024ef2e49a8801d997ec46b3ab379fb",
+        "title": "URP 2D 화면 굴절",
+        "created_by": "NK 스튜디오"
     },
-    "1fb4ef2e-49a8-8078-bdaf-fefaf0a97b92": {
+    "2014ef2e-49a8-8012-9aeb-c0971d43417f": {
         "checkbox": false,
         "status": "No Status",
         "Task Reminder": "",
-        "url": "https://www.notion.so/CI-CD-01-1fb4ef2e49a88078bdaffefaf0a97b92",
-        "title": "CI/CD 배포 전 로컬 환경 테스트 #01",
-        "created_by": "김혜송"
+        "url": "https://www.notion.so/Little-Endian-Big-Endian-2014ef2e49a880129aebc0971d43417f",
+        "title": "Little-Endian & Big-Endian",
+        "created_by": "JaeU"
+    },
+    "2004ef2e-49a8-80cf-aa81-d82c1b3c1a99": {
+        "checkbox": false,
+        "status": "No Status",
+        "Task Reminder": "",
+        "url": "https://www.notion.so/2004ef2e49a880cfaa81d82c1b3c1a99",
+        "title": "면접 질문 공유",
+        "created_by": "이고은"
+    },
+    "2004ef2e-49a8-8093-af76-c3170d97f28f": {
+        "checkbox": false,
+        "status": "No Status",
+        "Task Reminder": "",
+        "url": "https://www.notion.so/2004ef2e49a88093af76c3170d97f28f",
+        "title": "",
+        "created_by": "황영재"
+    },
+    "2004ef2e-49a8-8079-a645-e4df5959e384": {
+        "checkbox": false,
+        "status": "No Status",
+        "Task Reminder": "",
+        "url": "https://www.notion.so/1-2004ef2e49a88079a645e4df5959e384",
+        "title": "1차원 배열에 트리 자료구조 우겨넣기 ",
+        "created_by": "형준 손"
+    },
+    "1ff4ef2e-49a8-8092-8ddb-cda2cbb24a8b": {
+        "checkbox": false,
+        "status": "No Status",
+        "Task Reminder": "",
+        "url": "https://www.notion.so/Github-Action-Webhook-1ff4ef2e49a880928ddbcda2cbb24a8b",
+        "title": "Github Action 디스코드 Webhook 호출",
+        "created_by": "JaeU"
+    },
+    "1ff4ef2e-49a8-8014-a6ea-ecd64654b46d": {
+        "checkbox": false,
+        "status": "No Status",
+        "Task Reminder": "",
+        "url": "https://www.notion.so/PlayX4-1ff4ef2e49a88014a6eaecd64654b46d",
+        "title": "[PlayX4 특강]  왜 미완성된 게임을 판매하나요? [데이브 더 다이브] 기획 팀장 우찬희",
+        "created_by": "승민 김"
+    },
+    "1ff4ef2e-49a8-80c8-8231-c0114db310af": {
+        "checkbox": false,
+        "status": "No Status",
+        "Task Reminder": "",
+        "url": "https://www.notion.so/SDK-1ff4ef2e49a880c88231c0114db310af",
+        "title": "로그인 SDK 구현",
+        "created_by": "이승준"
+    },
+    "1ff4ef2e-49a8-80b4-8de3-dd4f204b3f94": {
+        "checkbox": false,
+        "status": "No Status",
+        "Task Reminder": "",
+        "url": "https://www.notion.so/MySQL-Redis-GraphQL-1ff4ef2e49a880b48de3dd4f204b3f94",
+        "title": "MySQL·Redis·GraphQL 서버 컨테이너화 및 실행 환경 구축",
+        "created_by": "이승준"
+    },
+    "1ff4ef2e-49a8-8028-b562-eaab440edd03": {
+        "checkbox": false,
+        "status": "No Status",
+        "Task Reminder": "",
+        "url": "https://www.notion.so/OAuth-2-0-Grant-Types-1ff4ef2e49a88028b562eaab440edd03",
+        "title": "OAuth 2.0 권한 부여 방식 (Grant Types) 이해하기",
+        "created_by": "이승준"
+    },
+    "1ff4ef2e-49a8-808b-be6e-d09de01c3b92": {
+        "checkbox": false,
+        "status": "No Status",
+        "Task Reminder": "",
+        "url": "https://www.notion.so/Vite-React-1ff4ef2e49a8808bbe6ed09de01c3b92",
+        "title": "Vite + React로 프론트엔드 구축하기",
+        "created_by": "이승준"
+    },
+    "1ff4ef2e-49a8-80ab-be04-ffbbedab73ec": {
+        "checkbox": false,
+        "status": "No Status",
+        "Task Reminder": "",
+        "url": "https://www.notion.so/Cloudflare-DNS-Turnstile-1ff4ef2e49a880abbe04ffbbedab73ec",
+        "title": "Cloudflare DNS/Turnstile",
+        "created_by": "이승준"
+    },
+    "1fe4ef2e-49a8-80c4-acf4-d6d76e820b9f": {
+        "checkbox": false,
+        "status": "No Status",
+        "Task Reminder": "",
+        "url": "https://www.notion.so/1fe4ef2e49a880c4acf4d6d76e820b9f",
+        "title": "투시원근법과 화면 투영",
+        "created_by": "동현 김"
+    },
+    "1fe4ef2e-49a8-8006-bd02-e44bd1f5c110": {
+        "checkbox": false,
+        "status": "No Status",
+        "Task Reminder": "",
+        "url": "https://www.notion.so/Zbrush-1fe4ef2e49a88006bd02e44bd1f5c110",
+        "title": "Zbrush 기능",
+        "created_by": "문경인"
     },
     "1f94ef2e-49a8-80f9-9f84-e7dc7dab0c4a": {
         "checkbox": false,

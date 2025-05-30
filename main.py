@@ -207,8 +207,8 @@ def main():
     logging.info("Main check function completed.")
 
 if __name__ == "__main__":
-    logging.info("Scheduler started: running main() every 2 minutes.")
-    schedule.every(2).minutes.do(main)  # 2분마다 실행
+    logging.info("Scheduler started: running main() every 1 minute.")
+    schedule.every(1).minutes.do(main)  # 1분마다 실행
 
     while True:
         schedule.run_pending()
