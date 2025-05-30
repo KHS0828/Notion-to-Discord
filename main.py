@@ -51,7 +51,7 @@ def mark_as_processed(page_id):
 
 def send_to_discord(page):
     
-    title = page["properties"]["이름"]["title"][0]["plain_text"]
+    title = page["properties"]["Name"]["title"][0]["plain_text"]
     url = page["url"]
     created = page["created_time"]
     page_id = page["id"]
