@@ -1,8 +1,8 @@
 import os
 import requests
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-load_dotenv()  # .env 파일에서 WEBHOOK_URL 변수 로드
+# load_dotenv()  # .env 파일에서 WEBHOOK_URL 변수 로드
 
 WEBHOOK_URL_REVIEW = os.getenv("WEBHOOK_URL_REVIEW")
 WEBHOOK_URL_APPROVED = os.getenv("WEBHOOK_URL_APPROVED")
