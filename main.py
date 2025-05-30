@@ -1,8 +1,6 @@
 import requests
 import json
 import schedule
-from discord import send_embedded_message
-# from dotenv import load_dotenv
 import os
 import logging
 import time
@@ -14,27 +12,54 @@ logging.basicConfig(
     datefmt='%Y-%m-%d %H:%M:%S'
 )
 
-# env 파일 로드
-# load_dotenv(dotenv_path="C:/Users/Developer/Downloads/GitClone/Notion-Discord-Webhook/.env")
-
-# Notion API token and database ID
+# 환경변수에서 읽기
 TOKEN = os.getenv("TOKEN")
 DATABASE_ID = os.getenv("DATABASE_ID")
+WEBHOOK_URL = os.getenv("WEBHOOK_URL")
 
-logging.info(f"DATABASE_ID: {DATABASE_ID}")
-logging.info(f"TOKEN: {TOKEN}")
-
-# Headers for API requests
 HEADERS = {
     "Authorization": "Bearer " + TOKEN,
     "Content-Type": "application/json",
     "Notion-Version": "2022-06-28",
 }
 
-# File to store a copy of the database
 DB_FILE = "./sample_db.json"
 
-# Read the database with the given ID and headers
+def send_embedded_message(title, description, url, color, fields, author_name):
+    """
+    디스코드 웹훅에 임베드 메시지 전송 함수
+    """
+    # 색상은 16진수 문자열 -> 10진수 변환
+    color_int = int(color, 16) if isinstance(color, str) else color
+
+    embed = {
+        "title": title,
+        "description": description,
+        "url": url,
+        "color": color_int,
+        "fields": fields,
+        "author": {
+            "name": author_name
+        },
+        "footer": {
+            "text": "Notion to Discord Webhook Bot"
+        },
+        "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S.000Z", time.gmtime())
+    }
+
+    data = {
+        "embeds": [embed]
+    }
+
+    try:
+        res = requests.post(WEBHOOK_URL, json=data)
+        if res.status_code == 204:
+            logging.info(f"Discord webhook message sent: {title}")
+        else:
+            logging.error(f"Failed to send webhook message: {res.status_code}, {res.text}")
+    except Exception as e:
+        logging.error(f"Exception sending webhook: {e}")
+
 def read_database(database_id, headers):
     read_url = f"https://api.notion.com/v1/databases/{database_id}/query"
     logging.info(f"Requesting Notion database at URL: {read_url}")
@@ -53,26 +78,22 @@ def read_database(database_id, headers):
     except requests.RequestException as e:
         logging.error(f"Request failed: {e}")
         return {}
-    
+
 def get_author_name_from_properties(props):
     author_prop = props.get("생성자")
     if author_prop:
-        # 'type'이 'created_by'일 때 작성자 정보가 'created_by' 키 안에 있음
         if author_prop.get("type") == "created_by":
             created_by = author_prop.get("created_by")
             if created_by and isinstance(created_by, dict):
                 name = created_by.get("name")
                 if name:
                     return name
-        # 기존 people 타입 처리 (혹시 혼용된 경우를 대비)
         elif author_prop.get("type") == "people":
             people = author_prop.get("people", [])
             if people:
                 return people[0].get("name", "Unknown")
     return "Unknown"
 
-# 작성자 이름 가져오기 (created_by 우선, 없으면 properties 내부 people 타입 필드 탐색)
-# 작성자 이름을 task 메타 데이터의 created_by 필드에서 시도 (dict 또는 list 모두 처리)
 def get_author_name(task):
     created_by = task.get("created_by")
     if isinstance(created_by, dict):
@@ -85,7 +106,6 @@ def get_author_name(task):
     logging.info(f"created_by 필드가 dict나 list가 아님 또는 빈 값: {created_by}")
     return "Unknown"
 
-# Extract certain properties from the database
 def get_data(data):
     tasks = data.get("results", [])
     sample_db = {}
@@ -93,10 +113,7 @@ def get_data(data):
     for task in tasks:
         props = task.get("properties", {})
 
-        # 1순위: properties 내 '생성자' 프로퍼티에서 작성자 이름 시도
         author_name = get_author_name_from_properties(props)
-
-        # 2순위: 없으면 created_by 메타 데이터에서 시도
         if author_name == "Unknown":
             author_name = get_author_name(task)
 
@@ -124,7 +141,6 @@ def get_data(data):
 
     return sample_db
 
-# Compare two copies of the database and check if the status of any tasks has changed
 def check_db(old_data, new_data):
     for task_id in new_data.keys():
         task = new_data[task_id]
@@ -137,52 +153,16 @@ def check_db(old_data, new_data):
 
         if task_id not in old_data:
             logging.info(f"New Task detected: {task['title']}")
-
             send_embedded_message(
-               title="기본 제목",  # fallback 제목 (fields에 Task가 없으면 이걸 씀)
-               description="노션에 새 페이지가 생성 되었어요! 👀",  # 부가 메시지
-               url=task["url"],  # 페이지 링크
+               title="새 페이지가 생성되었습니다! 👀",
+               description="노션에 새 페이지가 생성 되었어요!",
+               url=task["url"],
                color="00AAFF",
-               fields=fields,  # Notion에서 받아온 필드 리스트
-               author_name=author  # 작성자 이름
+               fields=fields,
+               author_name=author
             )
-        else:
-            old_task = old_data[task_id]
-            if task != old_task:
-                logging.info(f"Task status changed: {task['title']}")
+        # 수정사항 알림은 제거했습니다.
 
-                if "Approved" in task["status"] and "Approved" not in old_task["status"]:
-                    send_embedded_message(
-                        title="Approved",
-                        description="작업이 승인되었어요! ✅",
-                        url=task["url"],
-                        color="008930",
-                        fields=fields,
-                        author_name=author
-                    )
-                elif "Rejected" in task["status"]:
-                    if task["checkbox"] and not old_task["checkbox"]:
-                        send_embedded_message(
-                            title="Rejected Task",
-                            description="작업이 반려되었어요 ❌",
-                            url=task["url"],
-                            color="FF0000",
-                            fields=fields,
-                            author_name=author
-                        )
-                else:
-                    if task["checkbox"] and not old_task["checkbox"]:
-                        send_embedded_message(
-                            title="Task in Review",
-                            description="작업이 검토 중입니다 🧐",
-                            url=task["url"],
-                            color="FFA500",
-                            fields=fields,
-                            author_name=author
-                        )
-
-
-# Main function to check if the database has changed
 def main():
     logging.info("Starting main check function.")
     current_db = get_data(read_database(DATABASE_ID, HEADERS))
@@ -208,8 +188,8 @@ def main():
 
 if __name__ == "__main__":
     logging.info("Scheduler started: running main() every 1 minute.")
-    schedule.every(1).minutes.do(main)  # 1분마다 실행
+    schedule.every(1).minutes.do(main)
 
     while True:
         schedule.run_pending()
-        time.sleep(1)  # CPU 과다 사용 방지용으로 1초씩 슬립 추가 권장
+        time.sleep(1)
