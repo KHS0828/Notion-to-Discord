@@ -21,7 +21,7 @@ def get_unprocessed_pages():
 
     payload = {
         "filter": {
-            "property": "notified",
+            "property": "디스코드 알림됨",
             "checkbox": {
                 "equals": False
             }
@@ -40,7 +40,7 @@ def mark_as_processed(page_id):
     url = f"https://api.notion.com/v1/pages/{page_id}"
     payload = {
         "properties": {
-            "notified": {
+            "디스코드 알림됨": {
                 "checkbox": True
             }
         }
