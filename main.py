@@ -2,7 +2,7 @@ import requests
 import json
 import schedule
 from discord import send_embedded_message
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import os
 import logging
 import time
@@ -15,7 +15,7 @@ logging.basicConfig(
 )
 
 # env 파일 로드
-load_dotenv(dotenv_path="C:/Users/Developer/Downloads/GitClone/Notion-Discord-Webhook/.env")
+# load_dotenv(dotenv_path="C:/Users/Developer/Downloads/GitClone/Notion-Discord-Webhook/.env")
 
 # Notion API token and database ID
 TOKEN = os.getenv("TOKEN")
