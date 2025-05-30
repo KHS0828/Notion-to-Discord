@@ -29,6 +29,10 @@ def get_unprocessed_pages():
     }
 
     res = requests.post(url, headers=headers, json=payload)
+    if not res.ok:
+        print("Request failed:")
+        print("Status code:", res.status_code)
+        print("Response content:", res.text)
     res.raise_for_status()
     return res.json()["results"]
 
