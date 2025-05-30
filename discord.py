@@ -4,8 +4,7 @@ import requests
 
 # load_dotenv()  # .env 파일에서 WEBHOOK_URL 변수 로드
 
-WEBHOOK_URL_REVIEW = os.getenv("WEBHOOK_URL_REVIEW")
-WEBHOOK_URL_APPROVED = os.getenv("WEBHOOK_URL_APPROVED")
+WEBHOOK_URL = os.getenv("WEBHOOK_URL")  # 하나로 통합
 
 def send_embedded_message(title, description, url, color, fields, author_name=None):
     # 필드 중 Task만 페이지 제목으로 추출, 나머지는 필터링
@@ -48,7 +47,4 @@ def send_embedded_message(title, description, url, color, fields, author_name=No
     data = {"embeds": [embed]}
 
     # 'Approved' 단어 포함 여부에 따라 다른 웹훅으로 전송
-    if "Approved" not in description:
-        requests.post(WEBHOOK_URL_REVIEW, json=data)
-    else:
-        requests.post(WEBHOOK_URL_APPROVED, json=data)
+    requests.post(WEBHOOK_URL, json=data)  # 항상 동일한 웹훅에 전송
